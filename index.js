@@ -42,4 +42,4 @@ app.use('/medicament', medicamentRoutes);
 app.use('/pathologie', pathologieRoutes);
 app.use('/ordonnance', ordonnanceRoutes);
 app.use('/traitement', traitementRoutes);
-app.use('/inscription', connexionRoutes);
+app.use('/connexion', connexionRoutes);
