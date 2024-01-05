@@ -42,7 +42,7 @@ async lireClient() {
 async lireUnClient(req) {
 
     // Id du client récupéré
-    let cliId = req.body.cliId
+    let cliId = req.params.id
 
     // Requête SQL pour afficher un client
     let requete = "SELECT * FROM client WHERE cli_id = ?"
@@ -83,7 +83,7 @@ async ajouterClient(req) {
 async modifierClient(req){
 
     // Id, nom, prénom, date de naissance, numéro de sécu sociale et id de la mutuelle du client récupérés
-    let cliId = req.params.cliId
+    let cliId = req.params.id
     let cliNom = req.body.cliNom
     let cliPrenom = req.body.cliPrenom
     let cliDateNaiss = req.body.cliDateNaiss
@@ -107,7 +107,7 @@ async modifierClient(req){
 async supprimerClient(req) {
 
     // Id du client récupéré
-    let cliId = req.params.cliId
+    let cliId = req.params.id
 
     // Requête SQL pour supprimer un client
     let requete = "DELETE FROM client WHERE cli_id = ?"
@@ -126,7 +126,7 @@ async supprimerClient(req) {
 async rechercherClient (req) {
 
     // Id du client récupéré
-    let cliId = req.body.cliId
+    let cliId = req.params.id
     
     // Requête SQL pour rechercher un client
     let requete = "SELECT cli_id, cli_nom, cli_prenom, cli_dateNaiss, cli_numSecu, cli_mutId FROM client WHERE cli_id = ?"

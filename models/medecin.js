@@ -42,7 +42,7 @@ const Medecin = {
     async lireUnMedecin(req) {
 
         // Id du médecin récupéré
-        let medId = req.body.medId
+        let medId = req.params.id
 
         // Requête SQL pour afficher un médecin
         let requete = "SELECT * FROM medecin WHERE med_id = ?"
@@ -80,7 +80,7 @@ const Medecin = {
     async modifierMedecin(req){
 
         // Id, nom et prénom du médecin récupérés
-        let medId = req.params.medId
+        let medId = req.params.id
         let medNom = req.body.medNom
         let medPrenom = req.body.medPrenon
 
@@ -101,7 +101,7 @@ const Medecin = {
     async supprimerMedecin(req) {
 
         // Id du médecin récupéré
-        let medId = req.params.medId
+        let medId = req.params.id
 
         // Requête SQL pour supprimer un médecin
         let requete = "DELETE FROM medecin WHERE med_id = ?"
@@ -120,7 +120,7 @@ const Medecin = {
     async rechercherMedecin (req) {
 
         // Id du médecin récupéré
-        let medId = req.body.medId
+        let medId = req.params.id
         
         // Requête SQL pour rechercher un médecin
         let requete = "SELECT med_id, med_nom, med_prenom FROM medecin WHERE med_id = ?"

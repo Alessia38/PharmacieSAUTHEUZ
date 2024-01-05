@@ -42,7 +42,7 @@ const Medicament = {
     async lireUnMedicament(req) {
 
         // Id du médicament récupéré
-        let mediId = req.params.mediId
+        let mediId = req.params.id
 
         // Requête SQL pour afficher un médicament
         let requete = "SELECT * FROM medicament WHERE medi_id = ?"
@@ -80,7 +80,7 @@ const Medicament = {
     async modifierMedicament(req) {
 
         // Id, nom, type et quantitée en stock du médicament récupérés
-        let mediId = req.params.mediId
+        let mediId = req.params.id
         let mediNom = req.body.mediNom
         let mediType = req.body.mediType
         let mediStock = req.body.mediStock
@@ -101,7 +101,7 @@ const Medicament = {
     async supprimerMedicament(req) {
 
         //Id du médicament récupéré
-        let mediId = req.params.mediId
+        let mediId = req.params.id
     
         // Requête SQL pour supprimer un médicament
         let requete = "DELETE FROM medicament WHERE medi_id = ?"
@@ -119,7 +119,7 @@ const Medicament = {
     async rechercherMedicament(req) {
 
         // Id du médicament récupéré
-        let mediId = req.body.mediId
+        let mediId = req.params.id
         
         // Requête SQL pour rechercher un médicament
         let requete = "SELECT medi_id, medi_nom, medi_type, medi_stock FROM medicament WHERE medi_id = ?"

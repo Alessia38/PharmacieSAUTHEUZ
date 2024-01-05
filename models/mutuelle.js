@@ -42,7 +42,7 @@ const Mutuelle = {
     async lireUneMutuelle(req) {
 
         // Id de la mutuelle récupérée
-        let mutuId = req.params.mutuId
+        let mutuId = req.params.id
 
         // Requête SQL pour afficher une mutuelle
         let requete = "SELECT * FROM mutuelle WHERE mutu_id = ?"
@@ -80,7 +80,7 @@ const Mutuelle = {
     async modifierMutuelle(req) {
 
         // Id, nom, numéro de téléphone et mail de la mutuelle récupérés
-        let mutuId = req.params.mutuId
+        let mutuId = req.params.id
         let mutuNom = req.body.mutuNom
         let mutuTel = req.body.mutuTel
         let mutuMail = req.body.mutuMail
@@ -101,7 +101,7 @@ const Mutuelle = {
     async supprimerMutuelle(req) {
 
         // Id de la mutuelle récupéré
-        let mutuId = req.params.mutuId
+        let mutuId = req.params.id
     
         // Requête SQL pour supprimer une mutuelle
         let requete = "DELETE FROM mutuelle WHERE mutu_id = ?"
@@ -119,12 +119,12 @@ const Mutuelle = {
     async rechercherMutuelle(req) {
 
         // Id de la mutuelle récupéré
-        let mutuId = req.body.mutuId
+        let mutuId = req.params.id
         
         // Requête SQL pour rechercher une mutuelle 
         let requete = "SELECT * FROM mutuelle WHERE mutu_id = ?"
         return new Promise((reussi, echec) => {
-            mysqlconnexion.query(requete, [mutNom], (err, lignes, champs) => {
+            mysqlconnexion.query(requete, [mutuId], (err, lignes, champs) => {
                 if (err) {
                     return echec(err)
                 }
