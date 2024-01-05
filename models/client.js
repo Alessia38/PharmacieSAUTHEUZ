@@ -140,7 +140,6 @@ const Client = {
             })
         })   
     }
-
 }
 
 module.exports = {
