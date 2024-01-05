@@ -1,0 +1,31 @@
+/**
+ * @author Alessia TORNABENE
+ * @version 1.0.0
+ * @description Ci-dessous se trouvent le contrôleur de l'accueil
+*/
+
+const modelConnexion = require('../models/connexion');
+
+const controlConnexion = {
+
+    async Connexion(req, res) {
+
+        try {
+            
+            const data = await modelConnexion.ConnexionPharmacien.Connexion(req)
+
+            if (data[0]['COUNT(*)'] == 1) {
+                res.render('intranetAccueil')
+
+            }else {
+                res.redirect("/inscription")
+            } 
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+
+module.exports = {
+    controlConnexion
+}
