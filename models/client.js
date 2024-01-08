@@ -7,7 +7,6 @@
 // Dépendances et middlewares
 const mysql = require('mysql2');
 let iniparser = require('iniparser');
-const bodyparser = require('body-parser')
 
 // Dépendances bdd
 let configDB = iniparser.parseSync('./DB.ini')
@@ -24,7 +23,7 @@ mysqlconnexion.connect((err) => {
     else console.log('BDD connexion échouée \n Erreur: '+JSON.stringify(err))
 })
 
-const Client = {
+const ModelCli = {
 
     // Liste des clients
     async lireClient() {
@@ -113,7 +112,7 @@ const Client = {
         let requete = "DELETE FROM client WHERE cli_id = ?"
 
         return new Promise((reussi, echec)=>{
-            mysqlconnexion.query(requete, [cliId], (err, lignes, champs) => {
+            mysqlconnexion.query(requete, [cliId], (err, lignes) => {
                 if(err){
                     return echec(err)
                 }
@@ -143,10 +142,5 @@ const Client = {
 }
 
 module.exports = {
-    lireClient,
-    lireUnClient,
-    ajouterClient,
-    modifierClient,
-    supprimerClient,
-    rechercherClient
+    ModelCli
 }

@@ -13,11 +13,9 @@ const controlCli = {
     async lireClient(req, res) {
         try {
             // Appel fonction => model (client.js)
-            const client = await Client.lireClient()
-
+            const client = await Client.ModelCli.lireClient(req)
             if (client) {
-                res.render('client', {dataClient : client}) // Emmène vers la page client
-
+              res.render('client', {dataClient : client}) // Emmène vers la page client
             }else {
                 res.render('client', {dataClient : {} })
             } 
@@ -29,7 +27,8 @@ const controlCli = {
     // Lire UN SEUL client
     async lireUnClient(req, res) {
         try {
-            const dataCli = await Client.lireUnClient(req)
+            // Appel fonction => models (client.js & mutuelle.js)
+            const dataCli = await Client.ModelCli.lireUnClient(req)
             const dataMutu = await Mutuelle.lireMutuelle()
 
             if (dataCli && dataMutu) {
@@ -45,7 +44,7 @@ const controlCli = {
     // Ajout d'un client
     async ajouterClient(req, res) {
         try {
-            const data = await Client.ajouterClient(req);
+            const data = await Client.ModelCli.ajouterClient(req);
     
             if (data) {
                 res.redirect("/client/details");
@@ -58,45 +57,58 @@ const controlCli = {
             res.redirect("/client/details");
         }
     },
+
+    // Modification d'un client
+    async modifierClient(req, res) {
+        try {
+            const data = await Client.ModelCli.modifierClient(req)
+
+            if (data) {
+                res.redirect("/client")
+
+            }else {
+                console.log("probleme")
+                res.redirect("client/modifier/" + req.params.cliId)
+            } 
+        } catch (error) {
+            console.log(error)
+        }
+    },
     
     // Suppression d'un client
     async supprimerClient(req, res) {
         try {
-
-            const data = await modelMed.Medecin.supprimerMedecin(req)
+            const data = await Client.ModelCli.supprimerClient(req)
 
             if (data) {
 
-                res.redirect("/medecins/afficher");
+                res.redirect("/client/lire");
 
             } else {
 
                 console.log("probleme");
-                res.redirect("/medecins/afficher");
+                res.redirect("/client/lire");
             }
         } catch (error) {
             console.log(error)
         }
     },
 
-    async modifierMedecin(req, res) {
-        try {
-            const medId = req.body.medId;
-            const medNom = req.body.medNom;
-            const medPrenom = req.body.medPrenom;
-            console.log(medId, medNom, medPrenom)
-            const data = await modelMed.Medecin.modifierMedecin(medId, medNom, medPrenom);
+    // Recherche d'un client 
+    async rechercherClient(req, res) {
+        try {  
+            const data = await Client.ModelCli.rechercherClient(req)
 
             if (data) {
-                res.redirect("/medecins/afficher");
-            } else {
-                console.log("probleme");
-                res.redirect("/medecins/afficher");
-            }
+                res.render('rechercheClient', {dataClient : data})
+
+            }else {
+                res.render('rechercheClient', {dataClient : {} })
+            } 
         } catch (error) {
-            console.log(error);
-        }   
-    }
+            console.log(error)
+        }
+    },
 }    
 
 module.exports = {
