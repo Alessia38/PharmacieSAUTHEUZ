@@ -16,10 +16,10 @@ const controlConnexion = {
             const data = await modelConnexion.ConnexionPharmacien.Connexion(req)
 
             if (data[0]['COUNT(*)'] == 1) {
-                res.render('intranetAccueil')
+                res.render('accueil')
 
             }else {
-                res.redirect("/inscription")
+                res.redirect("/connexion")
             } 
         } catch (error) {
             console.log(error)

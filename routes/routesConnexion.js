@@ -1,3 +1,9 @@
+/**
+ * @author Alessia TORNABENE
+ * @version 1.0.0
+ * @description Ci-dessous se trouvent les routes concernant la connexion du pharmacien
+*/
+
 // Routeur Express pour ce module
 const express = require('express');
 const routeur = express.Router();

@@ -24,7 +24,7 @@ mysqlconnexion.connect((err) => {
     else console.log('BDD connexion échouée \n Erreur: '+JSON.stringify(err))
 })
 
-const Connexion = {
+const modelConnexion = {
 
     // Connexion du pharmacien
     async connexion(req) {
@@ -47,5 +47,5 @@ const Connexion = {
 }
 
 module.exports = {
-    Connexion
+    modelConnexion
 }
