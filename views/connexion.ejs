@@ -1,0 +1,44 @@
+<%- include('header') %>
+<section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+                
+            
+              <div class="mb-5">
+                <h1 >Connexion</h1>
+                <p style="font-size:smaller; color: rgb(103, 103, 103);" >Veuillez vous connecter afin d'accéder à l’intranet de la PHARMACIE SAUTHEUZ</p>
+              </div>
+            
+              <form action="/connexion" method="post" enctype="application/x-www-form-urlencoded">
+                <div class="row">
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="pharIdentifiant" style="font-size:smaller; color: rgb(103, 103, 103);">Identifiant</label>
+                    <input type="text" id="pharm_identifiant" class="form-control form-control-lg" placeholder="Identifiant" name="pharm_identifiant" />
+                  </div>
+      
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="pharMdp" style="font-size:smaller; color: rgb(103, 103, 103);">Mot de passe</label>
+                    <input type="password" id="pharm_mdp" class="form-control form-control-lg" placeholder="Mot de passe" name="pharm_mdp" />
+                  </div>
+      
+                  <button type="submit" class="btn btn-success btn-lg btn-block m-3" id="btnConnexion">Connexion</button>
+                </div>
+              </form>
+
+              <hr class="my-4">
+
+              <p style="font-size:smaller; color: rgb(103, 103, 103);" >mot de passe oublié ? <a href="#">Réinitialisez le ici !</a></p>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+
+<%- include('footer') %>

@@ -135,10 +135,5 @@ const Mutuelle = {
 }
 
 module.exports = {
-    lireMutuelle,
-    lireUneMutuelle,
-    ajouterMutuelle,
-    modifierMutuelle,
-    supprimerMutuelle,
-    rechercherMutuelle
+    Mutuelle
 }

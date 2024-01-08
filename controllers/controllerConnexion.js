@@ -1,13 +1,14 @@
 /**
  * @author Alessia TORNABENE
  * @version 1.0.0
- * @description Ci-dessous se trouvent le contrôleur de l'accueil
+ * @description Ci-dessous se trouve le contrôleur de la connexion
 */
 
 const modelConnexion = require('../models/connexion');
 
 const controlConnexion = {
 
+    // Connexion du pharmacien
     async Connexion(req, res) {
 
         try {

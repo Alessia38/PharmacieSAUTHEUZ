@@ -12,8 +12,8 @@ const ctrlClient = require('../controllers/controllerClient.js');
 routeur.get('/', ctrlClient.controlCli.lireClient)
 routeur.get('/modifier/:id', ctrlClient.controlCli.lireUnClient)
 routeur.post('/ajouter', ctrlClient.controlCli.ajouterClient)
-routeur.post('/modifier/:id', ctrlClient.controlCli.modifierClient)
-routeur.get('/supprimer/:id', ctrlClient.controlCli.supprimerClient)
+routeur.put('/modifier/:id', ctrlClient.controlCli.modifierClient)
+routeur.delete('/supprimer/:id', ctrlClient.controlCli.supprimerClient)
 routeur.get('/rechercher/:id', ctrlClient.controlCli.rechercherClient)
 
 module.exports = routeur;

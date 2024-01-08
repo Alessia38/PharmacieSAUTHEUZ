@@ -6,40 +6,50 @@
 
 // Modules
 const express = require('express');
-const ejs = require('ejs');
-const path = require('path');
-const bodyParser = require('body-parser');
-const { urlencoded } = require('body-parser');
+const mysql = require('mysql2');
+const iniparser = require('iniparser');
+const configDB = iniparser.parseSync('./DB.ini')
 
 // Importer les routes
-const medecinRoutes = require('./routes/routesMedecin.js');
+//const medecinRoutes = require('./routes/routesMedecin.js');
 const clientRoutes = require('./routes/routesClient.js');
-const medicamentRoutes = require('./routes/routesMedicament.js');
-const pathologieRoutes = require('./routes/routesPathologie.js');
-const mutuelleRoutes = require('./routes/routesMutuelle.js');
-const ordonnanceRoutes = require('./routes/routesOrdonnance.js');
-const traitementRoutes = require('./routes/routesTraitement.js');
+//const medicamentRoutes = require('./routes/routesMedicament.js');
+//const pathologieRoutes = require('./routes/routesPathologie.js');
+//const mutuelleRoutes = require('./routes/routesMutuelle.js');
+//const ordonnanceRoutes = require('./routes/routesOrdonnance.js');
+//const traitementRoutes = require('./routes/routesTraitement.js');
 const connexionRoutes = require('./routes/routesConnexion.js');
 
-// activer les dépendances pour Express et EJS
+// Connection à la bdd
+let mysqlconnexion = mysql.createConnection({
+    host:configDB['dev']['host'],
+    user:configDB['dev']['user'],
+    password:configDB['dev']['password'],
+    database:configDB['dev']['database']
+   })
+
+   mysqlconnexion.connect((err) => {
+    if (!err) console.log('BDD connectée.')
+    else console.log('BDD connexion échouée \n Erreur: '+JSON.stringify(err))
+   });
+
+// Activer les dépendances pour Express et EJS
 const app = express()
 app.set('view engine', 'ejs')
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('views'))
 app.use(express.static('public'))
 
-app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
-
-// activation middleware et lancement de l'app sur le port 3000
+// Activation middleware et lancement de l'app sur le port 3000
 app.use(express.json());
-app.use(express.urlencoded());
-app.listen(3000, () => console.log('le serveur Pharmacie sautheuz est prêt.'))
+app.listen(3000, () => console.log('Le serveur Pharmacie Sautheuz est prêt.'))
 
-// utilisation des routes
-app.use('/medecin', medecinRoutes);
+// Utilisation des routes
+//app.use('/medecin', medecinRoutes);
 app.use('/client', clientRoutes);
-app.use('/mutuelle', mutuelleRoutes);
-app.use('/medicament', medicamentRoutes);
-app.use('/pathologie', pathologieRoutes);
-app.use('/ordonnance', ordonnanceRoutes);
-app.use('/traitement', traitementRoutes);
+//app.use('/mutuelle', mutuelleRoutes);
+//app.use('/medicament', medicamentRoutes);
+//app.use('/pathologie', pathologieRoutes);
+//app.use('/ordonnance', ordonnanceRoutes);
+//app.use('/traitement', traitementRoutes);
 app.use('/connexion', connexionRoutes);
