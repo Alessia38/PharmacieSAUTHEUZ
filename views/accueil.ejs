@@ -1,12 +1,33 @@
-<%- include('header') %>
-<div class="dark-photo">
-    <h3><strong> Pharmacie SAUTHEUZ</strong></h3>
-    <p class="p-legend">À vos côtés depuis 1998, nous vous assurons un accès <br> aux traitements dont vous avez besoin.</p>
-</div>
+<!DOCTYPE html>
+<html lang="fr">
 
-<div class="container w-50">
-    <div class="service-title">
-        <h4><strong>Nos Services</strong></h4>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<%= style %>">
+    <title>Pharmacie SAUTEUHZ</title>
+</head>
+
+<body>
+    <header>
+        <h1>Pharmacie SAUTHEUZ</h1>
+    </header>
+    <div class="sidebar">
+        <a href="/#" class="button"><img src="<%= logo %>" height="60px" width="60px"></a>
+        <hr>
+        <a href="/medecins/afficher">Médecin</a>
+        <a href="/ordonnance/afficher">Ordonnance</a>
+        <a href="">Autre</a>
+        <a href="">A propos</a>
+        <a href="">Contact</a>
     </div>
+    <p>Voici l'intranet de la pharmacie, ici vous pourrez voir toutes les ordonnances, médecins et médicament présent.</p>
 
-<%- include('footer') %>
+    <footer>
+        <p>MICHAUD-EYMOZ Pierre - 2023</p>
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence Creative Commons"
+                style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+    </footer>
+</body>
+
+</html>

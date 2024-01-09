@@ -9,21 +9,6 @@ const mysql = require('mysql2');
 let iniparser = require('iniparser');
 const bodyparser = require('body-parser')
 
-// Dépendances bdd
-let configDB = iniparser.parseSync('./DB.ini')
-let mysqlconnexion = mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'root',
-    database:'pharmacie'
-})
-
-// Connexion bdd
-mysqlconnexion.connect((err) => {
-    if (!err) console.log('BDD connectée.')
-    else console.log('BDD connexion échouée \n Erreur: '+JSON.stringify(err))
-})
-
 const modelConnexion = {
 
     // Connexion du pharmacien
