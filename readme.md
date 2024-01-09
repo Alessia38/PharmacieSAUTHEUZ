@@ -6,7 +6,9 @@ Ce projet met en place un intranet permettant à des pharmaciens de gérer les o
 ***
 ## Technologies utilisées
 Le projet utilise :
-***
+
 * le framework NodeJS
 * le framework ExpressJS
 * le site de gestion PHPMyAdmin pour la base de données MySQL
+***
+Ce projet est réalisé par [Alessia TORNABENE](https://github.com/Alessia38)
