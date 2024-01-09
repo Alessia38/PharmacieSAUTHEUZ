@@ -1,7 +1,7 @@
 /**
  * @author Alessia TORNABENE
  * @version 1.0.0
- * @description Ci-dessous se trouvent les fonctions liées au modèle de données des médicaments
+ * @description Ci-dessous se trouvent les fonctions liées au modèle de données des mutuelles
 */
 
 // Dépendances et middlewares
@@ -24,7 +24,7 @@ mysqlconnexion.connect((err) => {
     else console.log('BDD connexion échouée \n Erreur: '+JSON.stringify(err))
 })
 
-const Mutuelle = {
+const ModelMutu = {
 
     // Liste des mutuelles
     async lireMutuelle() {
@@ -135,5 +135,5 @@ const Mutuelle = {
 }
 
 module.exports = {
-    Mutuelle
+    ModelMutu
 }

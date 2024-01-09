@@ -1,0 +1,29 @@
+<%- include('header_connected') %>
+
+<div class="mb-4 text-center display-4 mt-5">
+    <h1 >Liste des ordonnances</h1>
+</div>
+
+    <div class="container w-100 mt-5 bg-light p-3 li-container"> 
+        <ul class="list-group"><% dataOrdonnance.forEach(function(res){ %>
+            <li class="list-group-item d-flex align-items-center justify-content-between">
+                <div><strong><%= res.ordo_id %></strong></div>
+                <div><strong><%= res.ordo_date.toLocaleDateString('el-GR') %></strong></div>
+                <div>
+                    <div><strong><%= res.cli_nom %></strong> <%= res.cli_prenom %></div>
+                    <div>Date de naissance : <strong><%= res.cli_dateNaiss.toLocaleDateString('el-GR') %></strong></div>
+                    <div>Souffrant de : <strong> <%= res.path_nom %></strong></div>
+                </div>
+                <div>    
+                    <div> <strong>Dr.</strong>  <%= res.med_nom %> <%= res.med_prenom %> <br></div>
+                </div>
+                <div>
+                    <div><a class="text-decoration-none link-success" href="http://localhost:3000/traitement/<%= res.ordo_id %> ">Voir les Médicaments</a> <br><a class="text-decoration-none link-success" href="http://localhost:3000/traitement/ajouter/<%= res.ordo_id %>">Ajouter Traitement</a></div>
+                    <div class=""><a href="http://localhost:3000/ordonnance/modifier/<%= res.ordo_id %> "></a> <a href="http://localhost:3000/ordonnance/supprimer/<%= res.ordo_id %>"><img src="/images/suppr.png" class="li-icon"></a></div>
+                </div>
+            </li>
+        <% }) %> 
+        </ul>
+    </div>
+
+<%- include('footer') %>

@@ -1,7 +1,7 @@
 /**
  * @author Alessia TORNABENE
  * @version 1.0.0
- * @description Ci-dessous se trouvent les fonctions liées au modèle de données des médicaments
+ * @description Ci-dessous se trouvent les fonctions liées au modèle de données des pathologies
 */
 
 // Dépendances et middlewares
@@ -24,7 +24,7 @@ mysqlconnexion.connect((err) => {
     else console.log('BDD connexion échouée \n Erreur: '+JSON.stringify(err))
 })
 
-const Pathologie = {
+const ModelPath = {
 
     // Liste des pathologies
     async lirePathologie() {
@@ -131,10 +131,5 @@ const Pathologie = {
 }
 
 module.exports = {
-    lirePathologie,
-    lireUnePathologie,
-    ajouterPathologie,
-    modifierPathologie,
-    supprimerPathologie,
-    rechercherPathologie
+    ModelPath
 }

@@ -11,13 +11,13 @@ const iniparser = require('iniparser');
 const configDB = iniparser.parseSync('./DB.ini')
 
 // Importer les routes
-//const medecinRoutes = require('./routes/routesMedecin.js');
+const medecinRoutes = require('./routes/routesMedecin.js');
 const clientRoutes = require('./routes/routesClient.js');
-//const medicamentRoutes = require('./routes/routesMedicament.js');
-//const pathologieRoutes = require('./routes/routesPathologie.js');
-//const mutuelleRoutes = require('./routes/routesMutuelle.js');
-//const ordonnanceRoutes = require('./routes/routesOrdonnance.js');
-//const traitementRoutes = require('./routes/routesTraitement.js');
+const medicamentRoutes = require('./routes/routesMedicament.js');
+const pathologieRoutes = require('./routes/routesPathologie.js');
+const mutuelleRoutes = require('./routes/routesMutuelle.js');
+const ordonnanceRoutes = require('./routes/routesOrdonnance.js');
+const traitementRoutes = require('./routes/routesTraitement.js');
 const connexionRoutes = require('./routes/routesConnexion.js');
 
 // Connection à la bdd
@@ -45,11 +45,11 @@ app.use(express.json());
 app.listen(3000, () => console.log('Le serveur Pharmacie Sautheuz est prêt.'))
 
 // Utilisation des routes
-//app.use('/medecin', medecinRoutes);
+app.use('/medecin', medecinRoutes);
 app.use('/client', clientRoutes);
-//app.use('/mutuelle', mutuelleRoutes);
-//app.use('/medicament', medicamentRoutes);
-//app.use('/pathologie', pathologieRoutes);
-//app.use('/ordonnance', ordonnanceRoutes);
-//app.use('/traitement', traitementRoutes);
+app.use('/mutuelle', mutuelleRoutes);
+app.use('/medicament', medicamentRoutes);
+app.use('/pathologie', pathologieRoutes);
+app.use('/ordonnance', ordonnanceRoutes);
+app.use('/traitement', traitementRoutes);
 app.use('/connexion', connexionRoutes);

@@ -1,0 +1,19 @@
+<%- include('header_connected') %>
+
+<div class="mb-4 text-center display-4 mt-5">
+    <h1 >Liste des Mutuelles</h1>
+</div>
+
+<div class="container w-75 mt-5 bg-light p-3 li-container"> 
+    <ul class="list-group"> <% dataMutuelle.forEach(function(res){ %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <!-- <div><input type="text" value="<%= res.med_Id %>" disabled hidden></div> -->
+            <div><strong><%= res.mutu_id %></strong></div>
+            <div><%= res.mutu_nom %></div>
+            <div><a href="http://localhost:3000/mutuelle/modifier/<%= res.mutu_id %> "></a> <a href="http://localhost:3000/mutuelle/supprimer/<%= res.mutu_id %>"><img src="/images/suppr.png" class="li-icon"></a></div>
+        </li>
+    <% }) %> 
+    </ul>
+</div>
+
+<%- include('footer') %>

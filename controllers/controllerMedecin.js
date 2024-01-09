@@ -28,7 +28,6 @@ const controlMed = {
         try {
             // Appel fonction => model (medecin.js)
             const dataMed = await Medecin.ModelMed.lireUnMedecin(req)
-
             if (dataMed) {
                 res.render("modifierMedecin", {dataMedecin : dataMed})
 
@@ -44,7 +43,6 @@ const controlMed = {
     async ajouterMedecin(req, res) {
         try {
             const data = await Medecin.ModelMed.ajouterMedecin(req)
-
             if (data) {
                 res.redirect("/medecin")
             }else {
@@ -60,7 +58,6 @@ const controlMed = {
     async modifierMedecin(req, res) {
         try {
             const data = await Medecin.ModelMed.modifierMedecin(req)
-
             if (data) {
                 res.redirect("/medecin")
             }else {
@@ -76,7 +73,6 @@ const controlMed = {
     async supprimerMedecin(req, res){
 		try {
 			const data = await Medecin.ModelMed.supprimerMedecin(req)
-
 			if(data){
 				res.redirect("/medecin");
 			}else{
@@ -92,7 +88,6 @@ const controlMed = {
     async rechercherMedecin(req, res) {
         try {
             const data = await Medecin.ModelMed.rechercherMedecin(req)
-
             if (data) {
                 res.render('rechercheMedecin', {dataMedecin : data})
             }else {

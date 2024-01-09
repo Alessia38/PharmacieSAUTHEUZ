@@ -1,0 +1,20 @@
+<%- include('header_connected') %>
+
+<div class="mb-4 text-center display-4 mt-5">
+    <h1 >Traitement pour une Ordonnance</h1>
+</div>
+
+    <div class="container w-75 mt-5 bg-light p-3 li-container"> 
+        <ul class="list-group"><% dataTraitement.forEach(function(res){ %>
+            <li class="list-group-item d-flex align-items-center justify-content-lg-between">
+                <div><strong>Medicament </strong><%= res.medi_nom %> - <%= res.medi_type %></div>
+                <div><strong><%= res.trait_qteMedi %></strong> boites</div>
+                <div>Pour une durée de <strong><%= res.trait_duree %> </strong> Mois</div>
+                <div><a href="http://localhost:3000/traitement/modifier/<%= res.trait_id %> "></a><a href="http://localhost:3000/traitement/supprimer/<%= res.trait_id %>"><img src="/images/suppr.png" class="li-icon"></a></div>
+            </li>
+        <% }) %> 
+        </ul>
+    </div>
+    <a href="http://localhost:3000/ordonnance"><img src="/images/retour.png" class="li-icon"></a>
+
+<%- include('footer') %>
