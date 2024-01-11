@@ -1,69 +1,33 @@
-<%- include('header') %>
+<%- include('header_user') %>
 
 <div class="mb-4 text-center display-4 mt-5">
-    <h1 >Liste des Clients</h1>
+    <h1 >Liste des Patients</h1>
 </div>
 
-<div class="container py-2 px-2 my-3">
-    <% if (clients.length > 0) {%>        
-        <table class="table table-hover "> 
-            <thead class="table-success table-bordered">                         
+<div class="container w-75 mt-5 li-container" >
+    <table id="table" class="table table-light table-striped table-responsive{-sm|-md|-lg|-xl}">
+        <thead>
+            <td class="tdhead"> #</td>
+            <td class="tdhead"> Nom</td>
+            <td class="tdhead"> Date de naissance</td>
+            <td class="tdhead"> N° sécurité sociale</td>
+            <td class="tdhead"> Mutuelle</td>
+            <td class="tdhead">  </td>
+        </thead>
+        <tbody class="" id="tableau">
+            <div class="list-group"> <% dataPatient.forEach(function(res){ %>
                 <tr>
-                    <th scope="col"> Nom </th>
-                    <th scope="col"> Prénom </th>
-                    <th scope="col"> Date de Naissance </th>
-                    <th scope="col"> Numéro de sécurité sociale</th>
-                    <th scope="col"> Mutuelle </th>
-                    <th scope="col"></th>
+                    <td><strong><%= res.cli_id %></strong></td>
+                    <td><%= res.cli_nom %> <%= res.cli_prenom %></td>
+                    <td><%= res.cli_dateNaiss.toLocaleDateString('el-GR') %></td>
+                    <td><%= res.cli_numSecu %></td>
+                    <td><%= res.mutu_nom%> <br> <img src="/images/tel.png" class="li-icon">: <%= res.mutu_tel%></td>
+                    <td class=" justify-content-between align-items-center"><a href="http://localhost:3000/client/modifier/<%= res.cli_id %> "><img src="/images/modif.png" class="li-icon"></a> <a href="http://localhost:3000/client/supprimer/<%= res.cli_id %>"><img src="/images/suppr.png" class="li-icon"></a></td>
                 </tr>
-            </thead>
-            <tbody>
-                <% for(let i=0; i < clients.length; i++) {%>
-                    <tr>
-                        <td><%= clients[i].cli_nom %></td>
-                        <td><%= clients[i].cli_prenom %></td>
-                        <td><%= clients[i].cli_dateNaiss %></td>
-                        <td><%= clients[i].cli_numSecu %></td>
-                        <td><%= clients[i].cli_mutId %></td>
-                        <td>
-                            <a class="btn" href="/client/lire/<%= clients[i].cli_id %>"><i class="bi bi-chevron-down"></i></a>
-                        </td>
-                    </tr>
-                <% } %>
-            </tbody>
-        </table>
-    <% } %> 
-</div>
-
-<div class="container mt-3 px-3 py-3 bg-light border border-3 rounded border-dark border-opacity-50">
-    <h3 class="mb-3 pb-3 text-success border-bottom border-2 border-success border-opacity-50">Ajouter un nouveau client</h3>
-    <form action="/client/ajouter" method="POST" class="row g-3 pt-3">
-        <div class="col-md-4">
-            <label class="form-label" for="nom_patient">Nom</label>
-            <input class="form-control" type="text" name="nom_patient" id="nom_patient">
-        </div>
-        <div class="col-md-4">
-            <label class="form-label" for="prenom_patient">Prenom</label>
-            <input class="form-control" type="text" name="prenom_patient" id="prenom_patient">
-        </div>
-        <div class="col-md-4">
-            <label class="form-label" for="date_naissance">Date de Naissance</label>
-            <input class="form-control" type="date" name="date_naissance" id="date_naissance">
-        </div>
-        <div class="col-md-8">
-            <label class="form-label" for="num_secu_sociale">Numéro de sécurité sociale</label>
-            <input class="form-control" type="text" minlength="15" maxlength="15" name="num_secu_sociale" id="num_secu_sociale" placeholder="15 chiffres">
-        </div>
-        <div class="col-md-4">
-            <label class="form-label" for="id_mutuelle">Mutuelle</label>
-            <select class="form-control" name="id_mutuelle" id="id_mutuelle">
-                <% mutuelles.forEach(mutuelle => { %>
-                    <option value="<%= mutuelle.id_mutuelle %>"><%= mutuelle.nom_mutuelle %></option>
-                <% }); %>
-            </select>
-        </div>
-        
-    </form>
+            <% }) %> 
+                </div>
+        </tbody>
+    </table>
 </div>
 
 <%- include('footer') %>

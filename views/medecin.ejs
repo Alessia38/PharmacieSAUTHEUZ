@@ -1,4 +1,4 @@
-<%- include('header') %>
+<%- include('header_connected') %>
 
 <div class="mb-4 text-center display-4 mt-5">
     <h1 >Liste des Médecins</h1>
@@ -11,7 +11,7 @@
             <div><strong><%= res.med_id %></strong></div>
             <div> <strong>Dr.</strong>  <%= res.med_nom %> <%= res.med_prenom %></div>
             <div><img src="/images/tel.png" class="li-icon">: <%= res.med_Num %></div>
-            <div><a href="http://localhost:3000/medecin/modifier/<%= res.med_id %> "></a> <a href="http://localhost:3000/medecin/supprimer/<%= res.med_id %>"><img src="/images/suppr.png" class="li-icon"></a></div>
+            <div><a href="http://localhost:3000/medecin/modifier/<%= res.med_id %> "><img src="/images/modif.png" class="li-icon"></a> <a href="http://localhost:3000/medecin/supprimer/<%= res.med_id %>"><img src="/images/suppr.png" class="li-icon"></a></div>
         </li>
     <% }) %> 
     </ul>

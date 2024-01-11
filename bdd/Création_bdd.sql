@@ -39,6 +39,7 @@ CREATE TABLE medecin (
     med_id int auto_increment not null,
     med_nom varchar(20) not null,
     med_prenom varchar(20) not null,
+    med_tel varchar(20) not null,
     med_permis blob,
     primary key (med_id)
 );

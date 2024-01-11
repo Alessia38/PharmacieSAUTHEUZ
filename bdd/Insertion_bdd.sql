@@ -1,6 +1,6 @@
-insert into medecin (med_nom, med_prenom) VALUES ('CAPE', 'Andy');
-insert into medecin (med_nom, med_prenom) VALUES ('GONZOLA', 'Igor');
-insert into medecin (med_nom, med_prenom) VALUES ('TIM', 'Marie');
+insert into medecin (med_nom, med_prenom, med_tel) VALUES ('CAPE', 'Andy', '06 98 74 52 14');
+insert into medecin (med_nom, med_prenom, med_tel) VALUES ('GONZOLA', 'Igor', '07 45 06 78 74');
+insert into medecin (med_nom, med_prenom, med_tel) VALUES ('TIM', 'Marie', '07 12 35 49 68');
 
 insert into client (cli_nom, cli_prenom, cli_dateNaiss, cli_numSecu, cli_mutId) VALUES ('KILO', 'Sandy', DATE '1970-05-15', '2 65 07 32 046 984 06', 1);
 insert into client (cli_nom, cli_prenom, cli_dateNaiss, cli_numSecu, cli_mutId) VALUES ('AROÏDE', 'Paul', DATE '2001-12-26', '1 11 29 23 123 789 10', 2);

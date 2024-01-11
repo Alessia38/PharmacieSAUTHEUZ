@@ -1,0 +1,44 @@
+<%- include('header') %>
+<section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+                
+            
+              <div class="mb-5">
+                <h1 >Connexion</h1>
+                <p style="font-size:smaller; color: rgb(18, 82, 31);" >Pour accéder à l'intranet, veuillez vous connecter</p>
+              </div>
+            
+              <form action="/inscription" method="post" enctype="application/x-www-form-urlencoded">
+                <div class="row">
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="pharIdentifiant" style="font-size:smaller; color: rgb(18, 82, 31);">Identifiant</label>
+                    <input type="text" id="pharIdentifiant" class="form-control form-control-lg" placeholder="Ex : Corleone" name="pharIdentifiant" />
+                  </div>
+      
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="pharMdp" style="font-size:smaller; color: rgb(18, 82, 31);">Mot de passe</label>
+                    <input type="password" id="pharMdp" class="form-control form-control-lg" placeholder="Ex : sautheuz894" name="pharMdp" />
+                  </div>
+      
+                  <button type="submit" class="btn btn-success btn-lg btn-block m-3" id="btnConnexion">Connexion</button>
+                </div>
+              </form>
+
+              <hr class="my-4">
+
+              <p style="font-size:smaller; color: rgb(18, 82, 31);" >Mot de passe oublié ? <a href="#">Réinitialisez le ici !</a></p>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+
+<%- include('footer') %>

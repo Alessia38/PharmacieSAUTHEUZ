@@ -1,4 +1,4 @@
-<%- include('header') %>
+<%- include('header_connected') %>
 
 <div class="mb-4 text-center display-4 mt-5">
     <h1 >Traitement pour une Ordonnance</h1>
@@ -10,7 +10,7 @@
                 <div><strong>Medicament </strong><%= res.medi_nom %> - <%= res.medi_type %></div>
                 <div><strong><%= res.trait_qteMedi %></strong> boites</div>
                 <div>Pour une durée de <strong><%= res.trait_duree %> </strong> Mois</div>
-                <div><a href="http://localhost:3000/traitement/modifier/<%= res.trait_id %> "></a><a href="http://localhost:3000/traitement/supprimer/<%= res.trait_id %>"><img src="/images/suppr.png" class="li-icon"></a></div>
+                <div><a href="http://localhost:3000/traitement/modifier/<%= res.trait_id %> "><img src="/images/modif.png" class="li-icon"></a><a href="http://localhost:3000/traitement/supprimer/<%= res.trait_id %>"><img src="/images/suppr.png" class="li-icon"></a></div>
             </li>
         <% }) %> 
         </ul>

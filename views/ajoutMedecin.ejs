@@ -1,0 +1,35 @@
+<%- include('header_connected') %>
+
+    <div id="inputContainer" class="container w-50 p-5">
+        <div class="mb-5 text-center display-4">
+            <h1 >Ajouter un Médecin</h1>
+        </div>
+        <form action="/medecin/ajouter" method="POST" enctype="application/x-www-form-urlencoded">
+            
+            <div class="row">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="medNom">Nom</span>
+                    <input type="text" class="form-control" name="medNom" id="medNom">
+                </div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="medPrenom">Prénom</span>
+                    <input type="text" class="form-control" name="medPrenom" id="medPrenom">
+                </div>
+                <br>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="medTel">Numéro de téléphone</span>
+                    <input type="text" class="form-control" name="medTel" id="medTel">
+                </div>
+                <hr class="my-4">
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-success btn-block" id="btnAjouterMedecin">Ajouter</button>
+                </div>
+            </div>
+        </form>
+        
+        <br>
+    </div>
+
+<%- include('footer') %>
