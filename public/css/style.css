@@ -2,7 +2,7 @@ html,*{
   font-family: "Montserrat", sans-serif;;
 }
 
-html, body { height: 95%;}
+html, body { height: 100%;}
 
 body > footer {
   position: sticky;
@@ -145,10 +145,14 @@ body{
 
 #footer {
   background: #1C5437;
-  padding: 0 0 50px 0;
+  padding: 0;
+  margin: 0;
   color: #B8E6B3;
   font-size: 19px;
   margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
   
   
