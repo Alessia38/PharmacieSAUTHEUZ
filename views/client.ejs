@@ -1,7 +1,7 @@
-<%- include('header_user') %>
+<%- include('header_connected') %>
 
 <div class="mb-4 text-center display-4 mt-5">
-    <h1 >Liste des Patients</h1>
+    <h1 >Liste des Clients</h1>
 </div>
 
 <div class="container w-75 mt-5 li-container" >
@@ -15,7 +15,7 @@
             <td class="tdhead">  </td>
         </thead>
         <tbody class="" id="tableau">
-            <div class="list-group"> <% dataPatient.forEach(function(res){ %>
+            <div class="list-group"> <% dataClient.forEach(function(res){ %>
                 <tr>
                     <td><strong><%= res.cli_id %></strong></td>
                     <td><%= res.cli_nom %> <%= res.cli_prenom %></td>

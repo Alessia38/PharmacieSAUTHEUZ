@@ -1,0 +1,22 @@
+<%- include('header_connected') %>
+
+<div  class="container w-50 p-5">
+    <div class="mb-5 text-center display-4">
+        <h1 >Vous souhaitez avoir des informations sur une ordonnance ?</h1>
+    </div>
+    <form action="/ordonnance/rechercher" method="POST" enctype="application/x-www-form-urlencoded">
+        
+        <div class="row">
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="ordoDate">Date</span>
+                <input type="date" class="form-control" id="ordoDate" name="ordoDate" >
+            </div>
+            <hr class="my-4">
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-success btn-block">Rechercher</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<%- include('footer') %>

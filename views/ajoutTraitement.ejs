@@ -1,0 +1,40 @@
+<%- include('header_connected') %>
+
+<div id="inputContainer" class="container w-50 p-5">
+    <div class="mb-5 text-center display-4">
+        <h1 >Ajouter une Posologie</h1>
+    </div>  <% dataOrdonnance.forEach(function(res){ %>
+    <form action="/traitement/ajouter" method="post" enctype="application/x-www-form-urlencoded">
+        <div class="row">
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="ordoId">Numéro d'ordonnance</span>
+                <input type="text" class="form-control" id="ordoId" name="ordoId" value="<%= res.ordo_id %>">
+            </div><% }) %> 
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="traitQteMedi">Quantité de médicaments</span>
+                <input type="number" class="form-control" id="traitQteMedi" name="traitQteMedi">
+            </div>
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="traitDuree">Durée du traitement</span>
+                <input type="number" class="form-control" id="traitDuree" name="traitDuree">
+            </div>
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="traitMediId">Nom du médicament</span>
+                <select class="form-select" name="traitMediId" id="traitMediId">
+                    <% dataMedicament.forEach(function(res){ %>
+                        <option value="<%= res.medi_id %>"><%= res.medi_nom %></option>
+                    <% }) %> 
+                </select>
+            </div>
+            <hr class="my-4">
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-success btn-block" id="btnAjouterTraitement">Ajouter</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<%- include('footer') %>

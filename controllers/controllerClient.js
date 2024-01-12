@@ -47,14 +47,14 @@ const controlCli = {
             const data = await Client.ModelCli.ajouterClient(req);
     
             if (data) {
-                res.redirect("/client/details");
+                res.redirect("/client");
             } else {
                 console.log("problème");
-                res.redirect("/client/details");
+                res.redirect("/client");
             }
         } catch (error) {
             console.log(error);
-            res.redirect("/client/details");
+            res.redirect("/client");
         }
     },
 
@@ -67,8 +67,8 @@ const controlCli = {
                 res.redirect("/client")
 
             }else {
-                console.log("probleme")
-                res.redirect("client/modifier/" + req.params.cliId)
+                console.log("problème")
+                res.redirect("/client/modifier/" + req.params.cliId)
             } 
         } catch (error) {
             console.log(error)

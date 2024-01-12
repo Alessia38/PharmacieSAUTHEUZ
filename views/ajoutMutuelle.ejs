@@ -1,0 +1,23 @@
+<%- include('header_connected') %>
+
+<div id="inputContainer" class="container w-50 p-5">
+    <div class="mb-5 text-center display-4">
+        <h1 >Ajouter une Mutuelle</h1>
+    </div>
+    <form action="/mutuelle/ajouter" method="post" enctype="application/x-www-form-urlencoded">
+        <div class="row">
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="mutuNom">Nom</span>
+                <input type="text" class="form-control" id="mutuNom" name="mutuNom">
+            </div>
+            <br>
+            <hr class="my-4">
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-success btn-block" id="btnAjouterMutuelle">Ajouter</button>
+            </div>
+        </div>
+       
+    </form>
+</div>
+
+<%- include('footer') %>

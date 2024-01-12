@@ -1,0 +1,55 @@
+<%- include('header_connected') %>
+
+<div id="inputContainer" class="container w-50 p-5">
+    <div class="mb-4 text-center display-4">
+        <h1 >Modification d'un Client</h1>
+    </div>
+    <div> <% dataPatient.forEach(function(res){ %>
+        <form action="/client/modifier/<%= res.cli_id %>" method="post" enctype="application/x-www-form-urlencoded">
+            <div class="row">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="cliNom">Nom</span>
+                    <input type="text" class="form-control" id="cliNom" name="cliNom" value="<%= res.cli_nom %>">
+                </div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="cliPrenom">Prénom</span>
+                    <input type="text" class="form-control" id="cliPrenom" name="cliPrenom" value="<%= res.cli_prenom %>">
+                </div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="cliDateNaiss">Naissance</span>
+                    <input type="text" class="form-control" id="cliDateNaiss" name="cliDateNaiss" value="<%= res.cli_dateNaiss.toLocaleDateString('el-GR') %>">
+                </div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="cliNumSecu">Numéro de Sécurité Sociale</span>
+                    <input type="text" class="form-control" id="cliNumSecu" name="cliNumSecu" value="<%= res.cli_numSecu %>">
+                </div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="cliMutId">Numéro de mutuelle </span>
+                    <input type="text" class="form-control" id="cliMutId" name="cliMutId" value="<%= res.cli_mutId %>">
+                </div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="mutuNom">Mutuelle</span>
+                    <select class="form-select" name="mutuNom" id="mutuNom">
+                        <% dataMutuelle.forEach(function(res){ %>
+                            <option value="<%= res.mutu_id %>"><%= res.mutu_nom %></option>
+                        <% }) %> 
+                    </select>
+                </div>
+                <hr class="my-4">
+        
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-success btn-block" >Modifier</button>
+                </div>
+            </div>
+            <% }) %>
+        </form>
+    </div>
+    <a href="http://localhost:3000/client"><img src="/images/retour.png" class="li-icon"></a>
+</div>
+
+<%- include('footer') %>

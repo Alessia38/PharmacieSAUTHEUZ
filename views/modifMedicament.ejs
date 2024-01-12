@@ -1,0 +1,36 @@
+<%- include('header_connected') %>
+
+<div id="inputContainer" class="container w-50 p-5">
+    <div class="mb-5 text-center display-4">
+        <h1 >Modification d'un Médicament</h1>
+    </div>
+    <div> <% dataMedicament.forEach(function(res){ %>
+        <form action="/medicament/modifier/<%= res.medi_id %>" method="post" enctype="application/x-www-form-urlencoded">
+            <div class="row">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="mediNom">Nom</span>
+                    <input type="text" class="form-control" id="mediNom" name="mediNom" value="<%= res.medi_nom %>">
+                </div>
+                <br>
+                <div class="input-group  mb-3">
+                    <span class="input-group-text" for="mediStock">Quantité en stock </span>
+                    <input type="text" class="form-control" id="mediStock" name="mediStock" value="<%= res.medi_stock %>">
+                </div>
+                <br>
+                <small class="text-muted">(comprimé, piqûre, sirop ...)</small>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="mediType"> Type :</span>
+                    <input type="text" class="form-control" id="mediType" name="mediType" value="<%= res.medi_type %>">
+                </div>
+                <hr class="my-4">
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-success btn-block" id="btnModifierMedicament">Modifier</button>
+                </div>
+            </div>
+            <% }) %> 
+        </form>
+    </div>
+    <a href="http://localhost:3000/medicament"><img src="/images/retour.png" class="li-icon"></a>
+</div>
+
+<%- include('footer') %>

@@ -1,0 +1,22 @@
+<%- include('header_connected') %>
+
+<div class="container w-50 p-5">
+    <div class="mb-5 text-center display-4">
+        <h1 >Vous souhaitez avoir des informations sur un client ?</h1>
+    </div>
+    <form action="/client/rechercher" method="POST" enctype="application/x-www-form-urlencoded">
+        
+        <div class="row">
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="cliNom">Nom</span>
+                <input type="text" class="form-control" id="cliNom" name="cliNom" placeholder="Nom du client">
+            </div>
+            <hr class="my-4">
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-success btn-block">Rechercher</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<%- include('footer') %>

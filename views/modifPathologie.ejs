@@ -1,0 +1,25 @@
+<%- include('header_connected') %>
+
+<div id="inputContainer" class="container w-50 p-5">
+    <div class="mb-4 text-center display-4">
+        <h1 >Modification d'une Pathologie</h1>
+    </div>
+    <div> <% dataPathologie.forEach(function(res){ %>
+        <form action="/pathologie/modifier/<%= res.path_id %>" method="post" enctype="application/x-www-form-urlencoded">
+            <div class="row">
+                <div class="input-group">
+                    <span class="input-group-text" for="pathNom">Nom</span>
+                    <input type="text" class="form-control" id="pathNom" name="pathNom" value="<%= res.path_nom %>">
+                </div>
+                <hr class="my-4">
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-success btn-block" id="btnModifierPathologie">Modifier</button>
+                </div>
+            </div>
+            <% }) %> 
+        </form>
+    </div>
+</div>
+<a href="http://localhost:3000/pathologie"><img src="/images/retour.png" class="li-icon"></a>
+
+<%- include('footer') %>

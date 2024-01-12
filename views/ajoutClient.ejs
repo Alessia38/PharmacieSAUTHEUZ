@@ -1,0 +1,52 @@
+<%- include('header_connected') %>
+
+<div id="inputContainer" class="container w-50 p-5">
+    <div class="mb-4 text-center display-4">
+        <h1 >Ajouter un Client</h1>
+    </div>
+    <form action="/client/ajouter" method="post" enctype="application/x-www-form-urlencoded">
+        <div class="row">
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="cliNom">Nom</span>
+                <input type="text" class="form-control" id="cliNom" name="cliNom">
+            </div>
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="cliPrenom">Prénom</span>
+                <input type="text" class="form-control" id="cliPrenom" name="cliPrenom">
+            </div>
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="cliDateNaiss">Naissance</span>
+                <input type="date" class="form-control" id="cliDateNaiss" name="cliDateNaiss">
+            </div>
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="cliNumSecu">Numéro de Sécurité Sociale</span>
+                <input type="text" class="form-control" id="cliNumSecu" name="cliNumSecu">
+            </div>
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="cliMutId">Numéro de mutuelle </span>
+                <input type="text" class="form-control" id="cliMutId" name="cliMutId">
+            </div>
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="mutuNom">Mutuelle</span>
+                <select class="form-select" name="mutuNom" id="mutuNom">
+                    <% formClient.forEach(function(res){ %>
+                        <option value="<%= res.mutu_id %>"><%= res.mutu_nom %></option>
+                    <% }) %>  
+                </select>
+            </div>
+            <hr class="my-4">
+    
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-success btn-block" id="btnAjouterClient">Ajouter</button>
+            </div>
+        </div>
+        
+    </form>
+</div>
+
+<%- include('footer') %>

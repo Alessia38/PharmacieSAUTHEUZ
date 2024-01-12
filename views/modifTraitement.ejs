@@ -1,0 +1,44 @@
+<%- include('header_connected') %>
+
+<div id="inputContainer" class="container w-50 p-5">
+    <div class="mb-4 text-center display-4">
+        <h1 >Modification d'un Traitement</h1>
+    </div>
+    <div> <% dataPosologie.forEach(function(res){ %>
+        <form action="/traitement/modifier/<%= res.trait_id %>" method="post" enctype="application/x-www-form-urlencoded">
+            <div class="row">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="traitOrdoId">Numéro de l'ordonnance</span>
+                    <input type="text" class="form-control" id="traitOrdoId" name="traitOrdoId" value="<%= res.trait_ordoId %>">
+                </div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="traitQteMedi">Quantité de médicaments</span>
+                    <input type="number" class="form-control" id="traitQteMedi" name="traitQteMedi" value="<%= res.trait_qteMedi %>">
+                </div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="traitDuree">Durée du traitement</span>
+                    <input type="number" class="form-control" id="traitDuree" name="traitDuree" value="<%= res.trait_duree %>">
+                </div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="traitMediId">Nom du médicament</span>
+                    <select class="form-select" name="traitMediId" id="traitMediId">
+                        <% dataMedicament.forEach(function(res){ %>
+                            <option value="<%= res.medi_id %>"><%= res.medi_nom %></option>
+                        <% }) %> 
+                    </select>
+                </div>
+                <hr class="my-4">
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-success btn-block" id="btnModifierPosologie">Modifier</button>
+                </div>
+            </div>
+            <% }) %>
+        </form>
+    </div>
+    <a href="http://localhost:3000/ordonnance"><img src="/images/retour.png" class="li-icon"></a>
+</div>
+
+<%- include('footer') %>

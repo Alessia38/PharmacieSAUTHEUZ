@@ -7,7 +7,15 @@
 // Dépendances et middlewares
 const mysql = require('mysql2');
 let iniparser = require('iniparser');
-const bodyparser = require('body-parser')
+const configDB = iniparser.parseSync('./DB.ini')
+
+// Connection à la bdd
+let mysqlconnexion = mysql.createConnection({
+    host:configDB['dev']['host'],
+    user:configDB['dev']['user'],
+    password:configDB['dev']['password'],
+    database:configDB['dev']['database']
+   })
 
 const ModelPath = {
 

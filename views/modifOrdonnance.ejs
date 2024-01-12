@@ -1,0 +1,62 @@
+<%- include('header_connected') %>
+
+<div id="inputContainer" class="container w-50 p-5">
+    <div class="mb-5 text-center display-4">
+        <h1 >Modification d'une Ordonnance</h1>
+    </div>
+    <div> <% dataOrdonnance.forEach(function(res){ %>
+        <form action="/ordonnance/modifier/<%= res.ordo_id %>" method="post" enctype="application/x-www-form-urlencoded">
+            <div class="row">
+                <hr class="my-4">
+                <div>Date de l'ordonnance :</div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="ordoDate">Date</span>
+                    <input type="date" class="form-control" id="ordoDate" name="ordoDate" value="<%= res.ordo_date.toLocaleDateString('el-GR') %> ">
+                </div>
+                <hr class="my-4">
+                <div>Informations du client :</div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="ordoCliId"> Client</span>
+                    <select  class="form-select" name="ordoCliId" id="ordoCliId">
+                        <% dataClient.forEach(function(res){ %>
+                            <option value="<%= res.cli_id %>"><%= res.cli_nom %></option>
+                        <% }) %> 
+                    </select>
+                </div>
+                <br>
+                <hr class="my-4">
+                <div>Informations du médecin :</div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="ordoMedId">Nom du Médecin</span>
+                    <select class="form-select" name="ordoMedId" id="ordoMedId">
+                        <% dataMedecin.forEach(function(res){ %>
+                            <option value="<%= res.med_id %>"><%= res.med_nom %></option>
+                        <% }) %> 
+                    </select>
+                </div>
+                <br>
+                <hr class="my-4">
+                <div>Informations de la pathologie :</div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="ordoPathId"> Pathologie</span>
+                    <select class="form-select" name="ordoPathId" id="ordoPathId">
+                        <% dataPathologie.forEach(function(res){ %>
+                            <option value="<%= res.path_id %>"><%= res.path_nom %></option>
+                        <% }) %> 
+                    </select>
+                </div>
+                
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-success btn-block">Modifier</button>
+                </div>
+            </div>
+        </form><% }) %> 
+    </div>
+    <a href="http://localhost:3000/ordonnance"><img src="/images/retour.png" class="li-icon"></a>
+</div>
+
+<%- include('footer') %>

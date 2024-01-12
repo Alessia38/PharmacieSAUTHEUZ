@@ -1,13 +1,21 @@
 /**
  * @author Alessia TORNABENE
  * @version 1.0.0
- * @description Ci-dessous se trouvent la fonction liée à la connexion du pharmacien
+ * @description Ci-dessous se trouvent la fonction liée au modèle de données de la connexion du pharmacien
 */
 
 // Dépendances et middlewares
 const mysql = require('mysql2');
 let iniparser = require('iniparser');
-const bodyparser = require('body-parser')
+const configDB = iniparser.parseSync('./DB.ini')
+
+// Connection à la bdd
+let mysqlconnexion = mysql.createConnection({
+    host:configDB['dev']['host'],
+    user:configDB['dev']['user'],
+    password:configDB['dev']['password'],
+    database:configDB['dev']['database']
+   })
 
 const modelConnexion = {
 

@@ -9,6 +9,7 @@ const express = require('express');
 const mysql = require('mysql2');
 const iniparser = require('iniparser');
 const configDB = iniparser.parseSync('./DB.ini')
+const app = express()
 
 // Importer les routes
 const medecinRoutes = require('./routes/routesMedecin.js');
@@ -34,15 +35,36 @@ let mysqlconnexion = mysql.createConnection({
    });
 
 // Activer les dépendances pour Express et EJS
-const app = express()
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('views'))
-app.use(express.static('public'))
+app.use(express.static('public'));
+
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
 // Activation middleware et lancement de l'app sur le port 3000
 app.use(express.json());
 app.listen(3000, () => console.log('Le serveur Pharmacie Sautheuz est prêt.'))
+
+// Utilisation des routeurs
+app.get('/', (req, res) => {
+    res.send('La Pharmacie Sautheuz est active, veuillez entrer "http://localhost:3000/principal" afin de naviguer sur la fenêtre principale');
+});
+
+//Affichage de la page d'accueil
+app.get('/accueil', function(req, res) {
+    res.render('accueil');
+});
+
+// Affichage de la page de connexion pour le pharmacien
+app.get('/connexion', function(req, res) {
+    res.render('connexion');
+});
+
+app.get('/principal', function(req, res) {
+    res.render('principal');
+});
+
 
 // Utilisation des routes
 app.use('/medecin', medecinRoutes);

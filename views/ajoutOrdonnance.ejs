@@ -1,0 +1,60 @@
+<%- include('header_connected') %>
+
+<div id="inputContainer" class="container w-50 p-5">
+    <div class="mb-5 text-center display-4">
+        <h1 >Ajouter une Ordonnance</h1>
+    </div>
+    <form action="/ordonnance/ajouter" method="post" enctype="application/x-www-form-urlencoded">
+        <div class="row">
+            
+            <div>Date de l'ordonnance :</div>
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="ordoDate">Date</span>
+                <input type="date" class="form-control" id="ordoDate" name="ordoDate">
+            </div>
+            <hr class="my-4">
+            <div>Informations du client :</div>
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="cliId"> Client</span>
+                <select  class="form-select" name="cliId" id="cliId">
+                    <% dataClient.forEach(function(res){ %>
+                        <option value="<%= res.cli_id %>"><%= res.cli_nom %></option>
+                    <% }) %> 
+                </select>
+            </div>
+            <br>
+            <hr class="my-4">
+            <div>Informations du médecin :</div>
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="medId">Nom du Médecin</span>
+                <select class="form-select" name="medId" id="medId">
+                    <% dataMedecin.forEach(function(res){ %>
+                        <option value="<%= res.med_id %>"><%= res.med_nom %></option>
+                    <% }) %> 
+                </select>
+            </div>
+            <br>
+            <hr class="my-4">
+            <div>Informations de la pathologie :</div>
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="pathId"> Pathologie:</span>
+                <select class="form-select" name="pathId" id="pathId">
+                    <% dataPathologie.forEach(function(res){ %>
+                        <option value="<%= res.path_id %>"><%= res.path_nom %></option>
+                    <% }) %> 
+                </select>
+            </div>
+            <hr class="my-4">
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-success btn-block" id="btnAjouterOrdonnance">Ajouter</button>
+            </div>
+        </div>
+        
+    </form>
+</div>
+
+<%- include('footer') %>
